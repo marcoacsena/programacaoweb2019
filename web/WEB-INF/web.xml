@@ -8,6 +8,10 @@
         <servlet-name>OrdenarListaDeNumeros</servlet-name>
         <servlet-class>servlets.OrdenarListaDeNumeros</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LerInfoDeArq</servlet-name>
+        <servlet-class>servlets.LerInfoDeArq</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OrdenarListaDeNomes</servlet-name>
         <url-pattern>/ordenarlistadenomes</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>OrdenarListaDeNumeros</servlet-name>
         <url-pattern>/ordenarlistadenumeros</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LerInfoDeArq</servlet-name>
+        <url-pattern>/lerinfodearq</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
