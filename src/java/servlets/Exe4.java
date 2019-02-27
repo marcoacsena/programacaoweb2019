@@ -1,18 +1,14 @@
+package servlets;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marco
  */
-public class LerInfoDeArq extends HttpServlet {
+public class Exe4 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,47 +32,32 @@ public class LerInfoDeArq extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");               
+      
+               
+                FileReader encontrarArquivo = new FileReader("C:\\Users\\Marco\\Desktop\\Tecnólogo_ADS\\2019_1\\webprogramming\\aula1\\teste.txt");
+                BufferedReader lerArquivo = new BufferedReader(encontrarArquivo);
+                
+                String dadosDoArquivo = lerArquivo.readLine();             
+                         
+                encontrarArquivo.close();              
+                request.setAttribute("conteudo", dadosDoArquivo);
+                //System.out.println("Dados: "+dadosDoArquivo);
+                request.getRequestDispatcher("Exe4.jsp").forward(request, response);               
+            
         
-        String nomeDoArquivo = request.getParameter("nomedoarquivo");
-        InputStream inputstream;
-        
-        
-        //File arquivo = new File(nomeDoArquivo);
-        //String caminhoCompleto = arquivo.getAbsolutePath();
-        try{
-//                FileInputStream abrirArquivoDeEntrada = new FileInputStream(nomeDoArquivo);
-//                DataInputStream lerArquivo = new DataInputStream(abrirArquivoDeEntrada);
-                
-                inputstream = new BufferedInputStream(new FileInputStream("nomeDoArquivo"));
-                int conteudo = inputstream.read();
-                  
-                while(conteudo != -1){
-                    System.out.println((char)conteudo);
-                }
-                
-//                request.setAttribute("conteudoDoArquivo", conteudoDoArquivo);
-//                request.getRequestDispatcher("Exe4.jsp").forward(request, response);
-                
-                inputstream.close();
-                
-            } catch (IOException e){
-                System.out.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
-            }    
-
-//try (PrintWriter out = response.getWriter()) {
+//        try (PrintWriter out = response.getWriter()) {
 //            /* TODO output your page here. You may use following sample code. */
 //            out.println("<!DOCTYPE html>");
 //            out.println("<html>");
 //            out.println("<head>");
-//            out.println("<title>Servlet OrdenarListaDeNumeros</title>");            
+//            out.println("<title>Servlet Exe4</title>");            
 //            out.println("</head>");
 //            out.println("<body>");
-//            out.println(caminhoCompleto);
+//            out.println("<h1>" +dadosDoArquivo +"</h1>");
 //            out.println("</body>");
 //            out.println("</html>");
 //        }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

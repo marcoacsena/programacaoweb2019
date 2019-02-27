@@ -6,16 +6,10 @@
 package servlets;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,8 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marco
  */
-@WebServlet(name = "RegistrarInfo", urlPatterns = {"/registrarinfo"})
-public class RegistrarInfo extends HttpServlet {
+public class Exe5 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,31 +31,29 @@ public class RegistrarInfo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");              
-           
-            FileOutputStream encontrarArquivo = new FileOutputStream("C:\\webprogramming\\aula1\\teste.txt");
-            DataOutputStream gravarArquivo = new DataOutputStream(encontrarArquivo);                  
-                   
-            gravarArquivo.writeBytes(request.getParameter("info"));                  
-            encontrarArquivo.close();
-            
-            try{
-                FileReader abrirArquivo = new FileReader("C:\\Users\\Marco\\Desktop\\Tecnólogo_ADS\\2019_1\\webprogramming\\aula1\\teste.txt");
-                BufferedReader lerArquivo = new BufferedReader(abrirArquivo);
-
-                String dadosDoArquivo = new String();
-                dadosDoArquivo = lerArquivo.readLine();                
-                              
-                request.setAttribute("dadosExibidos", dadosDoArquivo);
-                request.getRequestDispatcher("Exe3.jsp").forward(request, response);
-                
-                abrirArquivo.close();
-                
-            } catch (IOException e){
-                System.out.printf("Erro na abertura do arquivo: %s.\n", e.getMessage());
-            }    
-                       
-           
+        response.setContentType("text/html;charset=UTF-8");
+        
+        String arquivo = request.getParameter("nomedoarquivo");
+        
+        FileReader encontrarArquivo = new FileReader (arquivo);
+        BufferedReader abrirArquivo = new  BufferedReader(encontrarArquivo);
+        
+        String conteudo = abrirArquivo.readLine();
+        request.setAttribute("conteudo", conteudo);
+        request.getRequestDispatcher("Exe5_1.jsp").forward(request, response);
+        
+//        try (PrintWriter out = response.getWriter()) {
+//            /* TODO output your page here. You may use following sample code. */
+//            out.println("<!DOCTYPE html>");
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet Exe5</title>");            
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>" + arquivo + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
