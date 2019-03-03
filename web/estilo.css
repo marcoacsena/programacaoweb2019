@@ -8,7 +8,7 @@ and open the template in the editor.
     Author     : Marco
 */
 
-.pagina1{
+.secao1{
     background-color: buttonface; /*Cor de fundo branca*/
     padding: 5px;
     margin-top: 1px;/*Margen superior com 1 pixel*/
@@ -16,8 +16,8 @@ and open the template in the editor.
     width: 24%; /*Ocupando 24% da largura total destinada para o corpo*/
     height: 500px; /*Altura de 500 pixels*/
 }
-.pagina2{
-    background-color: powderblue;/*Cor de fundo branca*/
+.secao2{
+    background-color: powderblue;/*Cor de fundo*/
     border-left: 10px;
     padding: 8px;/*Margen interna de 3 pixels*/
     float: right;/*propriedade indicando que a Área flutuará a direita*/

@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,10 +14,9 @@
     </head>   
                   
     <body>  
-        <h1>Informação obtida a partir de arquivo armazenado!</h1>        
-     
-            
-       <%out.println( request.getAttribute("conteudo") );%>
+       <h1>Informação obtida a partir de arquivo armazenado!</h1>   
+                 
+       <%out.println(request.getAttribute("conteudo"));%>
        
     
     </body>    

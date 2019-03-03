@@ -1,0 +1,27 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/02/2019, 14:39:22
+    Author     : Marco
+*/
+
+/*.tabela, th, td 
+{border: 1px solid black;}*/
+
+th,td {
+        
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 6px;
+    }   
+th{background-color: gold}    
+tr:nth-child(even)
+{background-color: #e9e9e9;}
+
+.login{color: blue; font-weight: bold}
+.data {color:red; font-style: italic}
+.titulo{font-weight: bold}
+.comentario {font-size: 30px}

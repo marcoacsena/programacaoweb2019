@@ -1,15 +1,13 @@
-package servlets;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package servlets;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marco
  */
-public class Exe4 extends HttpServlet {
+public class Exe6 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,21 +31,20 @@ public class Exe4 extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");               
-      
-               
-               FileReader encontrarArquivo = new FileReader("C:\\webprogramming\\aula1\\teste1.txt");
-               BufferedReader lerArquivo = new BufferedReader(encontrarArquivo);
+        response.setContentType("text/html;charset=UTF-8");
+        
+        
+        FileReader encontrarArquivo = new FileReader("C:\\webprogramming\\aula1\\teste.txt");
+        BufferedReader lerArquivo = new BufferedReader(encontrarArquivo);
                 
-               String dadosDoArquivo = lerArquivo.readLine();             
+                String dadosDoArquivo = lerArquivo.readLine();             
                          
-               encontrarArquivo.close();              
-               request.setAttribute("conteudo", dadosDoArquivo);
-               System.out.println("");
-               System.out.println("Conteúdo do arquivo: "+dadosDoArquivo);
-               request.getRequestDispatcher("Exe4.jsp").forward(request, response);       
-              
-       
+                encontrarArquivo.close();              
+                request.setAttribute("conteudo", dadosDoArquivo);
+                System.out.println("");
+                System.out.println("Conteúdo do arquivo: "+dadosDoArquivo);
+               request.getRequestDispatcher("Exe4.jsp").forward(request, response);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

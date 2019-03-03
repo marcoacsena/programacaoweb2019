@@ -16,6 +16,10 @@
         <servlet-name>Exe5</servlet-name>
         <servlet-class>servlets.Exe5</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Exe6</servlet-name>
+        <servlet-class>servlets.Exe6</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OrdenarListaDeNomes</servlet-name>
         <url-pattern>/ordenarlistadenomes</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>Exe5</servlet-name>
         <url-pattern>/exe5</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Exe6</servlet-name>
+        <url-pattern>/Exe6</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

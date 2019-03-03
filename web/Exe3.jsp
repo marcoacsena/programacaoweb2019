@@ -14,7 +14,7 @@
     </head>
     <body>
         
-        <div class="pagina1">
+        <div class="secao1">
         <h1>Recebe uma informação do usuário e a registre em um arquivo texto!</h1>
         
         <form method="post" action="registrarinfo">
@@ -25,7 +25,7 @@
         </form><br><br>
         </div> 
       
-        <div class="pagina2">
+        <div class="secao2">
              
         
         <h1>Informação Lida com Sucesso</h1>
