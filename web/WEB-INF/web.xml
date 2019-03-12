@@ -20,6 +20,14 @@
         <servlet-name>Exe6</servlet-name>
         <servlet-class>servlets.Exe6</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Exe2</servlet-name>
+        <servlet-class>Lista2.servlets.Exe2</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Exe3</servlet-name>
+        <servlet-class>Lista2.servlets.Exe3</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>OrdenarListaDeNomes</servlet-name>
         <url-pattern>/ordenarlistadenomes</url-pattern>
@@ -42,6 +50,14 @@
     <servlet-mapping>
         <servlet-name>Exe6</servlet-name>
         <url-pattern>/Exe6</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Exe2</servlet-name>
+        <url-pattern>/Lista2/exe2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Exe3</servlet-name>
+        <url-pattern>/Lista2/exe3</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

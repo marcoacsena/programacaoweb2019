@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package Lista2.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marco
  */
-public class OrdenarListaDeNomes extends HttpServlet {
+public class Exe2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,55 +30,21 @@ public class OrdenarListaDeNomes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+       
+        int A = Integer.parseInt(request.getParameter("a"));
+        int B = Integer.parseInt(request.getParameter("b"));
+        int C = Integer.parseInt(request.getParameter("c"));
         
-        String listaDeNomes[] = new String[5];
+        double delta = (B*B - 4*A*C);  
+        double raiz1 = (-B + Math.sqrt(delta))/(2*A);
+        double raiz2 = (-B - Math.sqrt(delta))/(2*A);
         
-        listaDeNomes[0] = request.getParameter("nome1");
-        listaDeNomes[1] = request.getParameter("nome2");
-        listaDeNomes[2] = request.getParameter("nome3");
-        listaDeNomes[3] = request.getParameter("nome4");
-        listaDeNomes[4] = request.getParameter("nome5");
+        System.out.println("As raízes da equação são: " +delta +", " +raiz1 +" e " +raiz2);
         
-        //Arrays.sort(listaDeNomes);
+        request.setAttribute("X1", raiz1);
+        request.setAttribute("X2", raiz2);
         
-        for (int i = 0; i < (listaDeNomes.length - 1); i++) {
-            for (int j = 0; j < (listaDeNomes.length - 1); j++) {
-                if (listaDeNomes[j].compareTo(listaDeNomes[j + 1]) > 0) {
-                    String auxiliar = listaDeNomes[j];
-                    listaDeNomes[j] = listaDeNomes[j + 1];
-                    listaDeNomes[j + 1] = auxiliar;
-                }
-            }
-        }
-        
-        request.setAttribute("listaDeNomes", listaDeNomes);
         request.getRequestDispatcher("Exe2.jsp").forward(request, response);
-        
-        
-//        ArrayList<String> listaDeNomesOrdenados = new ArrayList<String>();
-//        
-//        for(String nome: listaDeNomes){
-//        
-//            listaDeNomesOrdenados.add(nome);
-//        }
-        
-        
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet teste</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println(listaDeNomesOrdenados);
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
-      
-        
-        
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

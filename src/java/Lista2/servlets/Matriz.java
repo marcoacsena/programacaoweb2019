@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
+package Lista2.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Marco
  */
-public class OrdenarListaDeNomes extends HttpServlet {
+@WebServlet(name = "Matriz", urlPatterns = {"/Lista2/matriz"})
+public class Matriz extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,54 +34,25 @@ public class OrdenarListaDeNomes extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String listaDeNomes[] = new String[5];
+        double M11 = Double.parseDouble(request.getParameter("M11"));
+        double M12 = Double.parseDouble(request.getParameter("M12"));
+        double M13 = Double.parseDouble(request.getParameter("M13"));
+        double M21 = Double.parseDouble(request.getParameter("M21"));
+        double M22 = Double.parseDouble(request.getParameter("M22"));
+        double M23 = Double.parseDouble(request.getParameter("M23"));
+        double M31 = Double.parseDouble(request.getParameter("M31"));
+        double M32 = Double.parseDouble(request.getParameter("M32"));
+        double M33 = Double.parseDouble(request.getParameter("M33"));   
+           
         
-        listaDeNomes[0] = request.getParameter("nome1");
-        listaDeNomes[1] = request.getParameter("nome2");
-        listaDeNomes[2] = request.getParameter("nome3");
-        listaDeNomes[3] = request.getParameter("nome4");
-        listaDeNomes[4] = request.getParameter("nome5");
+        DecimalFormat df = new DecimalFormat("##.00");
+        String det = df.format(((M11*M22*M33 + M12*M23*M31 + M13*M21*M32) - (M31*M22*M13 + M32*M23*M11 + M33*M21*M12)));
         
-        //Arrays.sort(listaDeNomes);
+        System.out.println("A a área do triângulo é: " +det);
         
-        for (int i = 0; i < (listaDeNomes.length - 1); i++) {
-            for (int j = 0; j < (listaDeNomes.length - 1); j++) {
-                if (listaDeNomes[j].compareTo(listaDeNomes[j + 1]) > 0) {
-                    String auxiliar = listaDeNomes[j];
-                    listaDeNomes[j] = listaDeNomes[j + 1];
-                    listaDeNomes[j + 1] = auxiliar;
-                }
-            }
-        }
-        
-        request.setAttribute("listaDeNomes", listaDeNomes);
-        request.getRequestDispatcher("Exe2.jsp").forward(request, response);
-        
-        
-//        ArrayList<String> listaDeNomesOrdenados = new ArrayList<String>();
-//        
-//        for(String nome: listaDeNomes){
-//        
-//            listaDeNomesOrdenados.add(nome);
-//        }
-        
-        
-//        try (PrintWriter out = response.getWriter()) {
-//            /* TODO output your page here. You may use following sample code. */
-//            out.println("<!DOCTYPE html>");
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet teste</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println(listaDeNomesOrdenados);
-//            out.println("</body>");
-//            out.println("</html>");
-//        }
-      
-        
-        
-        
+        request.setAttribute("determinante", det);
+               
+        request.getRequestDispatcher("Exe5.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -6,13 +6,17 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Ordenação de Lista de Nomes</title>
     </head>
-    <body>
-        
+<body>
+    <div class="container-fluid">
+  
+ 
         <h1>Digite 5 nomes de pessoas</h1>
               
         <form method="post" action="ordenarlistadenomes">
@@ -65,6 +69,7 @@
         </table>
             
           <%} %>
-        
-    </body>
+    
+    </div> 
+ </body>
 </html>
